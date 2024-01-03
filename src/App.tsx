@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { globalStyles, theme } from 'style';
+import { Global, ThemeProvider } from '@emotion/react';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import utc from 'dayjs/plugin/utc';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import { deleteConsole } from 'utils/deleteConsole';
+import { RecoilRoot } from 'recoil';
+import { Toast } from 'components';
+
+dayjs.extend(customParseFormat);
+dayjs.extend(utc);
+dayjs.extend(isSameOrBefore);
+dayjs.extend(isSameOrAfter);
 
 function App() {
+  deleteConsole();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <Global styles={globalStyles} />
+        <Toast />
+      </ThemeProvider>
+    </RecoilRoot>
   );
 }
 
