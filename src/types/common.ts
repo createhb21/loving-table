@@ -7,6 +7,27 @@ export interface Toast {
   content: string;
 }
 
+export type FilterConditionType =
+  | 'notice'
+  | 'check'
+  | 'radio'
+  | 'input'
+  | 'calendar'
+  | 'null';
+
+export interface FilterListItem {
+  key: string;
+  label: string;
+}
+
+export interface FilterCondition {
+  name: string;
+  key: string;
+  type: FilterConditionType;
+  filterList?: FilterListItem[];
+  placeholder?: string;
+}
+
 export interface MonthYear {
   value: dayjs.Dayjs;
   month: string;

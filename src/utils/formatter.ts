@@ -152,3 +152,18 @@ export const makeDeviceInfo = (
   osVersion: string,
   appVersion: string,
 ) => [deviceModel, osVersion, `v${appVersion}`].join(' / ');
+
+export const formatFilterLabelValue = (label: string, value: string) => {
+  switch (label) {
+    case 'status':
+    case 'payment':
+    case 'deliveryType':
+    case 'category':
+    case 'app':
+    case 'platform':
+    case 'driverType':
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    default:
+      return value;
+  }
+};
