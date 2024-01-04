@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import type { Languages, FilterCondition } from 'types';
+import type { FilterCondition } from 'types';
 import useFilterInput from '../hooks/useFilterInput';
 import * as S from './FilterInput.styled';
 
@@ -44,7 +44,7 @@ const FilterInput = ({
       <S.FilterInput
         ref={inputRef}
         value={inputValue}
-        placeholder={t(condition.placeholder as Languages)}
+        placeholder={condition.placeholder}
         maxLength={condition.key === 'mobileNumber' ? 20 : 100}
         onFocus={handleFocusInput}
         onBlur={handleBlurInput}
@@ -52,7 +52,7 @@ const FilterInput = ({
       />
       {isFocus && (
         <S.FilterInputApply ref={applyBtnRef} onBlur={handleBlurInput}>
-          {t('Apply' as Languages)}
+          {'Apply'}
         </S.FilterInputApply>
       )}
     </S.FilterInputWrapper>

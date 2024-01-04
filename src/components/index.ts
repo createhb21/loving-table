@@ -6,5 +6,7 @@ export { default as Calendar } from './Calendar/Calendar';
 export { default as ErrorMsg } from './ErrorMsg/ErrorMsg';
 export { default as CheckboxBtn } from './Button/CheckboxBtn';
 export { default as CalendarBtn } from './Button/CalendarBtn';
+export { default as DataSection } from './TableDataSection/DataSection';
+export { default as Pagination } from './Pagination/Pagination';
 export { default as CalendarInput } from './Input/CalendarInput';
 export { default as LoadingSpinner } from './LoadingSpinner/LoadingSpinner';

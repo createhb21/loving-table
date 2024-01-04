@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { v4 as uuidv4 } from 'uuid';
 
-import type { Languages, FilterCondition } from 'types';
+import type { FilterCondition } from 'types';
 import FilterInput from './input/FilterInput';
 import FilterSearchLabel from './searchLabel/FilterSearchLabel';
 import useCheckBtnFilter from './hooks/useCheckBtnFilter';
@@ -20,7 +19,6 @@ interface FilterProps {
 }
 
 const Filter = ({ className, filterCondition }: FilterProps) => {
-  const { t } = useTranslation();
   const [searchParams] = useSearchParams();
 
   const { selectedDates, selectedDate, handleChangeFilterDate } =
@@ -80,7 +78,7 @@ const Filter = ({ className, filterCondition }: FilterProps) => {
               data-isconditionfocus={isConditionFocus}
               data-isconditionerror={isConditionError}
             >
-              {t(condition.name as Languages)}
+              {condition.name}
             </S.ConditionName>
             <S.ConditionChildrenWapper>
               <FilterInput
@@ -97,7 +95,7 @@ const Filter = ({ className, filterCondition }: FilterProps) => {
       case 'notice':
         return (
           <S.Condition key={i}>
-            <S.ConditionName>{t(condition.name as Languages)}</S.ConditionName>
+            <S.ConditionName>{condition.name}</S.ConditionName>
             <S.ConditionChildrenWapper>
               <S.FilterListWapper>
                 {condition.filterList && (
@@ -120,7 +118,7 @@ const Filter = ({ className, filterCondition }: FilterProps) => {
                           )}
                         />
                         <label htmlFor={item.label} tabIndex={0}>
-                          {t(item.label as Languages)}
+                          {item.label}
                         </label>
                       </S.FilterListItem>
                     ))}
@@ -134,7 +132,7 @@ const Filter = ({ className, filterCondition }: FilterProps) => {
       case 'check':
         return (
           <S.Condition key={i}>
-            <S.ConditionName>{t(condition.name as Languages)}</S.ConditionName>
+            <S.ConditionName>{condition.name}</S.ConditionName>
             <S.ConditionChildrenWapper>
               <S.FilterListWapper>
                 {condition.filterList && (
@@ -148,7 +146,7 @@ const Filter = ({ className, filterCondition }: FilterProps) => {
                         onChange={handleClickAllCheckBtn(condition.key)}
                       />
                       <label htmlFor={condition.key} tabIndex={0}>
-                        {t('All' as Languages)}
+                        {'All'}
                       </label>
                     </S.FilterAllBtn>
                     {condition.filterList.map((item, i) => (
@@ -164,7 +162,7 @@ const Filter = ({ className, filterCondition }: FilterProps) => {
                           )}
                         />
                         <label htmlFor={item.label} tabIndex={0}>
-                          {t(item.label as Languages)}
+                          {item.label}
                         </label>
                       </S.FilterListItem>
                     ))}
@@ -178,7 +176,7 @@ const Filter = ({ className, filterCondition }: FilterProps) => {
       case 'radio':
         return (
           <S.Condition key={i}>
-            <S.ConditionName>{t(condition.name as Languages)}</S.ConditionName>
+            <S.ConditionName>{condition.name}</S.ConditionName>
             <S.ConditionChildrenWapper>
               <S.FilterListWapper>
                 {condition.filterList && (
@@ -193,7 +191,7 @@ const Filter = ({ className, filterCondition }: FilterProps) => {
                         onChange={handleClickAllRadioBtn(condition.key)}
                       />
                       <label htmlFor={condition.key} tabIndex={0}>
-                        {t('All' as Languages)}
+                        {'All'}
                       </label>
                     </S.FilterAllBtn>
                     {condition.filterList.map((item, i) => (
@@ -210,7 +208,7 @@ const Filter = ({ className, filterCondition }: FilterProps) => {
                           )}
                         />
                         <label htmlFor={item.label} tabIndex={0}>
-                          {t(item.label as Languages)}
+                          {item.label}
                         </label>
                       </S.FilterListItem>
                     ))}
@@ -225,7 +223,7 @@ const Filter = ({ className, filterCondition }: FilterProps) => {
         return (
           <S.Condition key={i} data-isconditionfocus={isConditionFocus}>
             <S.ConditionName data-isconditionfocus={isConditionFocus}>
-              {t(condition.name as Languages)}
+              {condition.name}
             </S.ConditionName>
             <S.CalendarWrapper>
               <S.Calendar

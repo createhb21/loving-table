@@ -53,3 +53,11 @@ export type Languages = keyof (typeof languages)[number];
 
 export type TableBodyDataType<T> = (key: KeyOf<T>, data: T) => React.ReactNode;
 export type ColumnTable = Record<string, string>;
+
+export interface PageInfo {
+  currentPage: number;
+  dataPerPage: number;
+  startRow: number;
+  totalData: number;
+  totalPages: number;
+}
